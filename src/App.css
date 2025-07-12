@@ -1,9 +1,0 @@
-/* Tailwind class extension OR global CSS */
-.modal-scroll::-webkit-scrollbar {
-  display: none;
-}
-
-.modal-scroll {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
-}

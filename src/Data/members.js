@@ -440,13 +440,4 @@ export const members = [
     "joinDate": "Jan 25, 2025",
     "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
   },
-  {
-    "id": "PG050",
-    "name": "Jack Hammond",
-    "email": "hernandezamber@gmail.com",
-    "plan": "Premium",
-    "status": "Pending",
-    "joinDate": "Sep 19, 2024",
-    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80"
-  }
 ];
