@@ -29,7 +29,7 @@ const MembersDashboard = () => {
   });
 
   // Pagination logic
-  const totalMembers = allMembers.length; // Total members in database
+  const totalMembers = members.length; // Total members in database
   const totalPages = Math.ceil(totalMembers / membersPerPage);
   const startIndex = (currentPage - 1) * membersPerPage;
   const endIndex = startIndex + membersPerPage;
