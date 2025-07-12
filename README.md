@@ -161,12 +161,11 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 ## 🙌 Author
 
-**Your Name**  
-Frontend Developer | React Enthusiast
+**Abhishek Sah**  
+Full Stack Developer
 
-- 🌐 **Portfolio**: [yourportfolio.com](https://yourportfolio.com)
-- 💼 **LinkedIn**: [linkedin.com/in/yourname](https://linkedin.com/in/yourname)
-- 🐙 **GitHub**: [github.com/yourusername](https://github.com/yourusername)
+- 💼 **LinkedIn**: [linkedin.com/in/abhishek-sah-958b5825b](www.linkedin.com/in/abhishek-sah-958b5825b)
+- 🐙 **GitHub**: [github.com/sah-abhishek](https://github.com/sah-abhishek)
 
 ---
 
