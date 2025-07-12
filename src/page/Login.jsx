@@ -12,7 +12,7 @@ export default function ParadiseGolfLogin() {
 
   const handleSubmit = () => {
     console.log('Login attempt:', { email, password, rememberMe });
-    navigate('/dashboard');
+    navigate('/members');
   };
 
   return (
