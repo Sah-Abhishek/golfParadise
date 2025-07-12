@@ -1,7 +1,9 @@
 # ⛳ Paradise Golf Login Page
 
+![Login Preview](./src/assets/sreenshot1.png)
 A beautiful, modern login page for the Paradise Golf Admin Management Portal. Built with React and Tailwind CSS, featuring a split-screen design with a stunning golf course image and an elegant login form.
 
+![Dashboard Preview](./src/assets/screenshot2.png)
 ---
 
 ## ✨ Features
