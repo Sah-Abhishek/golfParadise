@@ -5,12 +5,28 @@ import { useNavigate } from 'react-router-dom';
 
 export default function ParadiseGolfLogin() {
   const [email, setEmail] = useState('admin@paradisegolf.com');
+  const [emailErrorMsg, setEmailErrorMsg] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordErrorMsg, setPasswordErrorMsg] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = () => {
+    let valid = true;
+    if (!password || password.trim() === '') {
+      setPasswordErrorMsg('Password cannot be empty');
+      valid = false;
+    } else {
+      setPasswordErrorMsg('');
+    }
+    if (!email || email.trim() === '') {
+      setEmailErrorMsg('Email cannot be empty');
+      valid = false;
+    } else {
+      setEmailErrorMsg('');
+    }
+    if (!valid) return;
     console.log('Login attempt:', { email, password, rememberMe });
     navigate('/members');
   };
@@ -76,6 +92,9 @@ export default function ParadiseGolfLogin() {
                   required
                 />
               </div>
+              {emailErrorMsg && (
+                <p className="text-sm text-red-600 mt-1">{emailErrorMsg}</p>
+              )}
             </div>
 
             {/* Password Field */}
@@ -102,6 +121,9 @@ export default function ParadiseGolfLogin() {
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
               </div>
+              {passwordErrorMsg && (
+                <p className="text-sm text-red-600 mt-1">{passwordErrorMsg}</p>
+              )}
             </div>
 
             {/* Remember Me & Forgot Password */}
