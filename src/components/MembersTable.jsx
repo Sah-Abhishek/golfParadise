@@ -1,8 +1,8 @@
 import MemberRow from "./MemberRow";
 
 const MembersTable = ({ members }) => (
-  <div className="overflow-hidden">
-    <table className="w-full">
+  <div className="overflow-x-auto w-full">
+    <table className="min-w-[600px] w-full">
       <thead className="bg-gray-50">
         <tr>
           <th className="text-left py-3 px-6 font-medium text-gray-700 text-sm">Member</th>
