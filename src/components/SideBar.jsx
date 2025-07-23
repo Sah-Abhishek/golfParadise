@@ -1,15 +1,17 @@
 import { BarChart3, Bell, Crown, MapPin, RotateCcw, Settings, Tag, Users, Menu } from "lucide-react";
 import Logo from "./LogoComponent";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
 
   const sidebarItems = [
     { icon: BarChart3, label: 'Dashboard', active: false },
-    { icon: Users, label: 'Members', active: true },
+    { icon: Users, label: 'Members', active: true, path: '/members' },
     { icon: Crown, label: 'Membership Plans', active: false },
-    { icon: Tag, label: 'Coupons', active: false },
+    { icon: Tag, label: 'Coupons', active: false, path: '/coupons' },
     { icon: MapPin, label: 'Golf Courses', active: false },
     { icon: RotateCcw, label: 'Redemption Logs', active: false },
     { icon: Bell, label: 'Notifications', active: false },

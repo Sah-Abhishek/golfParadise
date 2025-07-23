@@ -1,11 +1,11 @@
 import { Bell } from "lucide-react";
 
-const Header = ({ onAddMember }) => (
+const Header = ({ heading, subHeading }) => (
   <header className="bg-white border-b border-gray-200 px-6 py-4">
     <div className="flex items-center justify-between">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Members Management</h1>
-        <p className="text-gray-600 mt-1">Manage all golf club members</p>
+        <h1 className="text-2xl font-bold text-gray-900">{heading}</h1>
+        <p className="text-gray-600 mt-1">{subHeading}</p>
       </div>
       <div className="flex items-center space-x-4">
         <div className="relative">

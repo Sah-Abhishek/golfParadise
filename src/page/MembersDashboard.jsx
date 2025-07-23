@@ -62,7 +62,7 @@ const MembersDashboard = () => {
       />
 
       <div className="flex-1 flex flex-col overflow-hidden">
-        <Header onAddMember={handleAddMember} />
+        <Header heading={"Members Management"} subHeading={"Manage all golf club members"} onAddMember={handleAddMember} />
 
         <SearchFilterBar
           searchTerm={searchTerm}
