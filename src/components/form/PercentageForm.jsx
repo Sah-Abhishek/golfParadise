@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function FlatForm() {
+export default function PercentageForm() {
   const [step, setStep] = useState(0);
 
   const steps = [
@@ -138,9 +138,9 @@ function StepTwo() {
   const discountOptions = [
     "Membership Card",
     "Tee Times Coupon (Course Specific)",
-    "Any Tournament Entry Pass",
-    "Specific Tournament Entry Pass",
+    "Tournament Entry Pass",
     "Pro Shop Items",
+
   ];
   const golfCourses = [
     "-- Select a Course --",
@@ -238,26 +238,30 @@ function StepTwo() {
           <label className="text-lg font-semibold text-gray-800 mb-2">
             Discount Applied On Product
           </label>
-          <div className="grid grid-cols-2 gap-2 text-lg text-gray-800">
-            {discountOptions.map((option, index) => (
-              <label
-                key={index}
-                className={`flex items-center gap-2 ${option === "Pro Shop Items" ? "col-span-2" : ""
-                  }`}
-              >
-                <input
-                  type="radio"
-                  name="discountTarget"
-                  value={option}
-                  checked={selectedTarget === option}
-                  onChange={(e) => setSelectedTarget(e.target.value)}
-                  className="accent-blue-600"
-                />
-                {option}
-              </label>
+          <div className="grid grid-cols-2 gap-x-4">
+            {[0, 1].map((col) => (
+              <div key={col} className="flex flex-col gap-y-2">
+                {discountOptions
+                  .filter((_, i) => i % 2 === col)
+                  .map((option, index) => (
+                    <label
+                      key={index}
+                      className="flex items-center gap-2"
+                    >
+                      <input
+                        type="radio"
+                        name="discountTarget"
+                        value={option}
+                        checked={selectedTarget === option}
+                        onChange={(e) => setSelectedTarget(e.target.value)}
+                        className="accent-blue-600"
+                      />
+                      {option}
+                    </label>
+                  ))}
+              </div>
             ))}
           </div>
-
           {/* Conditional Dropdown Rendering */}
           {selectedTarget === "Membership Card" && (
             <div className="max-w-sm mt-4">
@@ -362,13 +366,7 @@ function StepThree() {
     "Existing Golfers",
     "Gold Tier",
     "Silver Tier",
-    "Paradise Card Members",
-    "Non Paradise Members",
-    "Referral Program Participants",
-    "Dormant Members",
-    "Tournament Participants",
-    "Local Residents",
-    "Birthday/Anniversary",
+    "Stackable with other offers"
   ];
   return (
 
@@ -434,7 +432,7 @@ function StepFour() {
         Channel & Auto-Apply
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 gap-x-6 items-start">
         {/* Valid Channels */}
         <div className="md:col-span-2">
           <label className="text-lg font-semibold text-gray-800 mb-4 block">
@@ -449,29 +447,13 @@ function StepFour() {
               <input type="checkbox" className="accent-blue-600 w-5 h-5" />
               POS
             </label>
-          </div>
-        </div>
-
-        {/* Application Rules Box */}
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-          <label className="text-lg font-semibold text-gray-800 mb-3 block">
-            Application Rules
-          </label>
-          <div className="flex flex-col gap-3 text-lg text-gray-800">
             <label className="flex items-center gap-2">
               <input type="checkbox" className="accent-blue-600 w-5 h-5" />
               Auto-Apply Eligible
             </label>
-            <label className="flex items-center gap-2">
-              <input type="checkbox" className="accent-blue-600 w-5 h-5" />
-              Stackable with other offers
-            </label>
-            <label className="flex items-center gap-2">
-              <input type="checkbox" className="accent-blue-600 w-5 h-5" />
-              Full-Price Items Only
-            </label>
           </div>
         </div>
+
       </div>
     </div>
   );
@@ -519,44 +501,21 @@ function StepFive() {
       {/* Exclusions Free Text */}
       <div className="mb-6">
         <label className="block text-lg font-semibold text-gray-800 mb-2">
-          Exclusions (Free Text)
+          Exclusions
         </label>
         <textarea
           rows={3}
-          placeholder="e.g., Not valid on holidays"
+          placeholder="e.g., Not valid on holidays, Blackout, dates apply"
           className="w-full border border-gray-300 rounded-lg px-4 py-3 text-lg resize-none"
         ></textarea>
       </div>
 
       {/* Specific Excluded Categories */}
       <div>
-        <label className="block text-lg font-semibold text-gray-800 mb-4">
-          Specific Excluded Categories
-        </label>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-lg text-gray-800">
           <label className="flex items-center gap-2">
             <input type="checkbox" className="accent-blue-600 w-5 h-5" />
-            Gift Cards
-          </label>
-          <label className="flex items-center gap-2">
-            <input type="checkbox" className="accent-blue-600 w-5 h-5" />
-            Already Discounted Items
-          </label>
-          <label className="flex items-center gap-2">
-            <input type="checkbox" className="accent-blue-600 w-5 h-5" />
-            Specific Courses
-          </label>
-          <label className="flex items-center gap-2">
-            <input type="checkbox" className="accent-blue-600 w-5 h-5" />
-            Specific Membership Types
-          </label>
-          <label className="flex items-center gap-2">
-            <input type="checkbox" className="accent-blue-600 w-5 h-5" />
-            Tournament Entry Passes
-          </label>
-          <label className="flex items-center gap-2">
-            <input type="checkbox" className="accent-blue-600 w-5 h-5" />
-            Pro Shop Items
+            Full-Price Items Only
           </label>
         </div>
       </div>

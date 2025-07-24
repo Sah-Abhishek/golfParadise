@@ -5,15 +5,20 @@ import { FaCheckCircle, FaGift, FaTicketAlt } from "react-icons/fa";
 import { FaDollarSign } from "react-icons/fa6";
 import QuickActionSection from "../components/QuickActionsSection";
 import CouponModal from "../components/CouponModal";
+import CouponManagementTable from "../components/CouponManagementTable"; // Import the new component
 import { useState } from "react";
-import FlatForm from "../components/form/FlatForm";
+import FlatForm from "../components/form/PercentageForm";
+import PercentageForm from "../components/form/PercentageForm";
+import FixedForm from "../components/form/FixedForm";
 
 const CouponsPage = () => {
-  const [isCouponModalOpen, setIsCouponModalOpen] = useState(false);  // State to control the modal visibility
+  const [isCouponModalOpen, setIsCouponModalOpen] = useState(false);
   const [selectedCoupon, setSelectedCoupon] = useState("");
+
   const onModalClose = () => {
     setIsCouponModalOpen(false);
   }
+
   const onModalOpen = () => {
     console.log("The modal should be open by now");
     setIsCouponModalOpen(true);
@@ -56,15 +61,18 @@ const CouponsPage = () => {
 
           {/* Quick Actions */}
           <QuickActionSection onModalOpen={onModalOpen} selectedCoupon={selectedCoupon} />
+          {selectedCoupon === 'Flat' && <FlatForm />}
+          {selectedCoupon === 'Percentage' && <PercentageForm />}
+          {selectedCoupon === 'Fixed' && <FixedForm />}
 
-          {selectedCoupon && <FlatForm />}
-
-          {/* Coupons Table */}
-          {/* <CouponTable /> */}
+          {/* Coupons Management Table */}
+          <div className="mt-8">
+            <CouponManagementTable />
+          </div>
         </div>
       </div>
-      {isCouponModalOpen
-        &&
+
+      {isCouponModalOpen && (
         <CouponModal
           onClose={() => setIsCouponModalOpen(false)}
           isCouponModalOpen={isCouponModalOpen}
@@ -72,9 +80,9 @@ const CouponsPage = () => {
           setSelectedCoupon={setSelectedCoupon}
           onSelectCoupon={(coupon) => console.log("Selected:", coupon)}
           selectedCoupon={selectedCoupon}
-        />}
+        />
+      )}
     </div>
-
   )
 }
 
